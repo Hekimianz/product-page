@@ -84,6 +84,128 @@ header {
   display: none;
 }
 
+.image__mobile--slider {
+  position: relative;
+  height: 30rem;
+  background: url("./images/image-product-1.jpg") center / cover no-repeat;
+}
+
+.image__mobile--slider img {
+  position: absolute;
+  cursor: pointer;
+  padding: 1.429rem 1.714rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.image__mobile--slider img:first-of-type {
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.image__mobile--slider img:nth-of-type(2) {
+  right: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.product__info--cont {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem;
+}
+
+.product__info--text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.product__info--text span {
+  color: #69707d;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1.85px;
+}
+
+.product__info--text h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+}
+
+.product__info--text p {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  color: #69707d;
+  font-weight: 400;
+}
+
+.product__price--cont {
+  display: flex;
+  align-items: center;
+  margin: 2.4rem 0;
+}
+
+.product__info--cont h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.product__price--cont span:first-of-type {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 0.3rem 0.9rem;
+  background-color: #1d2026;
+  border-radius: 6px;
+  margin-left: 2.3rem;
+  margin-right: 9rem;
+}
+
+.product__price--cont span:nth-of-type(2) {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #69707d;
+  line-height: 2.6rem;
+  text-decoration: line-through;
+}
+
+.quantity__cont {
+  height: 5.6rem;
+  background-color: #f6f8fd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+
+.quantity__cont img {
+  cursor: pointer;
+}
+
+button {
+  height: 5.6rem;
+  background-color: #ff7e1b;
+  border-radius: 1rem;
+  width: 100%;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button img {
+  filter: brightness(0.15) contrast(1.4) sepia(0.3) hue-rotate(180deg);
+  width: 1.7rem;
+  height: 1.6rem;
+  margin-right: 1.55rem;
+}
 .hidden {
   display: none;
 }
