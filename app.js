@@ -8,6 +8,9 @@ const lightboxClose = document.querySelector(".lightbox__close");
 const mobileImageBtns = document.querySelectorAll(".mobile__image--btn");
 const lightboxBtns = document.querySelectorAll(".lightbox__btn");
 const thumbs = document.querySelectorAll(".thumbnail");
+const cartIcon = document.querySelector(".cart__icon");
+const mobileCart = document.querySelector(".mobile__cart");
+const desktopCart = document.querySelector(".desktop__cart");
 
 let currentImage = "";
 currentImage = getImage();
@@ -68,7 +71,7 @@ lightboxBtns.forEach((btn) => {
     );
   });
 });
-
+// Home thumbnails
 thumbs.forEach((thumbnail) => {
   thumbnail.addEventListener("click", (e) => {
     thumbs.forEach((t) => {
@@ -84,6 +87,16 @@ thumbs.forEach((thumbnail) => {
     }
     e.target.classList.add("active");
   });
+});
+
+// Show / hide mobile cart
+cartIcon.addEventListener("click", () => {
+  mobileCart.classList.toggle("hidden");
+});
+
+// Show / hide desktop cart
+cartIcon.addEventListener("click", () => {
+  desktopCart.classList.toggle("hidden");
 });
 
 // Get prev/next image
