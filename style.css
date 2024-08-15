@@ -93,6 +93,7 @@ header {
   position: relative;
   height: 30rem;
   background: url("./images/image-product-1.jpg") center / cover no-repeat;
+  background-color: #ff7e1b;
 }
 
 .image__mobile--slider img {
@@ -273,7 +274,8 @@ button:hover {
   background-color: #ffab6a;
 }
 
-.thumbnail::before {
+.thumbnail::before,
+.active::before {
   content: "";
   position: absolute;
   top: 0;
@@ -287,8 +289,9 @@ button:hover {
   border-radius: 10px;
 }
 
-.thumbnail:hover::before {
-  opacity: 0.5;
+.thumbnail:hover::before,
+.active::before {
+  opacity: 0.75;
 }
 
 .quantity__cont img:hover {
@@ -351,6 +354,10 @@ button:hover {
 .lightbox__btn:hover img {
   filter: invert(51%) sepia(82%) saturate(1135%) hue-rotate(346deg)
     brightness(100%) contrast(102%);
+}
+
+.active {
+  border: 2px solid #ff7e1b;
 }
 
 .next {
