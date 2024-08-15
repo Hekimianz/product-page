@@ -11,9 +11,23 @@ const thumbs = document.querySelectorAll(".thumbnail");
 const cartIcon = document.querySelector(".cart__icon");
 const mobileCart = document.querySelector(".mobile__cart");
 const desktopCart = document.querySelector(".desktop__cart");
+const quantityUp = document.querySelector(".quantity__up");
+const quantityDown = document.querySelector(".quantity__down");
+const quantity = document.querySelector(".quantity__amount");
+const addCartBtn = document.querySelector("button");
+const cartContent = document.querySelectorAll(".cart__innerContent");
+const deleteCart = document.querySelectorAll(".cart__delete");
 
+const cart = {
+  amount: 0,
+  calcTotal: function () {
+    return this.amount * 125.0;
+  },
+};
+let selectedQuantity = 0;
 let currentImage = "";
 currentImage = getImage();
+renderCart();
 
 // Show mobile nav
 mobileNavOpen.addEventListener("click", () => {
@@ -97,6 +111,58 @@ cartIcon.addEventListener("click", () => {
 // Show / hide desktop cart
 cartIcon.addEventListener("click", () => {
   desktopCart.classList.toggle("hidden");
+});
+
+// add to cart
+addCartBtn.addEventListener("click", () => {
+  cart.amount = selectedQuantity;
+  renderCart();
+});
+
+// delete cart
+deleteCart.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    cart.amount = 0;
+    renderCart();
+  });
+});
+
+// render cart
+function renderCart() {
+  if (!cart.amount) {
+    cartContent.forEach((cart) => {
+      cart.classList.add("hidden");
+    });
+    document.querySelectorAll(".product__priceDesc").forEach((text) => {
+      text.innerHTML = `$125.00 x`;
+    });
+    document.querySelectorAll(".empty__cart").forEach((span) => {
+      span.classList.remove("hidden");
+    });
+  } else {
+    document.querySelectorAll(".empty__cart").forEach((span) => {
+      span.classList.add("hidden");
+    });
+    cartContent.forEach((cart) => {
+      cart.classList.remove("hidden");
+    });
+    document.querySelectorAll(".product__priceDesc").forEach((text) => {
+      text.innerHTML += ` ${
+        cart.amount
+      }<span class="bold"> $${cart.calcTotal()}.00</span>`;
+    });
+  }
+}
+
+// change quantity to be added to cart
+quantityUp.addEventListener("click", () => {
+  selectedQuantity++;
+  quantity.innerText = selectedQuantity;
+});
+quantityDown.addEventListener("click", () => {
+  if (!selectedQuantity) return;
+  selectedQuantity--;
+  quantity.innerText = selectedQuantity;
 });
 
 // Get prev/next image

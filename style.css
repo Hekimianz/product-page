@@ -145,7 +145,7 @@ header {
   line-height: 2.6rem;
 }
 
-.image__mobile--slider img {
+.mobile__image--btn {
   position: absolute;
   cursor: pointer;
   padding: 1.429rem 1.714rem;
@@ -153,13 +153,13 @@ header {
   border-radius: 50%;
 }
 
-.image__mobile--slider img:first-of-type {
+.mobile__image--btn:first-of-type {
   left: 1.6rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.image__mobile--slider img:nth-of-type(2) {
+.mobile__image--btn:nth-of-type(2) {
   right: 1.6rem;
   top: 50%;
   transform: translateY(-50%);
@@ -416,6 +416,44 @@ button:hover {
 .prev {
   left: -2.9rem;
 }
+
+.cart__innerContent {
+  display: flex;
+  height: 5.2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.cart__product--img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 4px;
+}
+
+.cart__textContent {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.cart__delete {
+  margin-left: 0.3rem;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.cart__delete:hover {
+  filter: invert(51%) sepia(82%) saturate(1135%) hue-rotate(346deg)
+    brightness(100%) contrast(102%);
+}
+
+.bold {
+  font-weight: 700;
+}
+
 .hidden {
   display: none;
   opacity: 0;

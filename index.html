@@ -76,7 +76,25 @@
     <main>
       <section class="desktop__cart hidden">
         <h3>Cart</h3>
-        <div class="cart__content">Your cart is empty</div>
+        <div class="cart__content">
+          <span class="empty__cart">Your cart is empty</span>
+          <div class="cart__innerContent hidden">
+            <img
+              class="cart__product--img"
+              src="./images/image-product-1-thumbnail.jpg"
+              alt="shoes"
+            />
+            <div class="cart__textContent">
+              <span class="product__name">Fall Limited Edition Sneakers</span>
+              <span class="product__priceDesc">$125.00 x</span>
+            </div>
+            <img
+              class="cart__delete"
+              src="./images/icon-delete.svg"
+              alt="delete product from cart"
+            />
+          </div>
+        </div>
       </section>
       <section class="image__mobile--slider">
         <img
@@ -86,7 +104,25 @@
         />
         <section class="mobile__cart hidden">
           <h3>Cart</h3>
-          <div class="cart__content">Your cart is empty</div>
+          <div class="cart__content">
+            <span class="empty__cart">Your cart is empty</span>
+            <div class="cart__innerContent hidden">
+              <img
+                class="cart__product--img"
+                src="./images/image-product-1-thumbnail.jpg"
+                alt="shoes"
+              />
+              <div class="cart__textContent">
+                <span class="product__name">Fall Limited Edition Sneakers</span>
+                <span class="product__priceDesc">$125.00 x</span>
+              </div>
+              <img
+                class="cart__delete"
+                src="./images/icon-delete.svg"
+                alt="delete product from cart"
+              />
+            </div>
+          </div>
         </section>
         <img
           class="mobile__image--btn mobileNext"
@@ -122,9 +158,17 @@
 
         <div class="product__addCart--cont">
           <div class="quantity__cont">
-            <img src="./images/icon-minus.svg" alt="Decrease quantity" />
-            <span>0</span>
-            <img src="./images/icon-plus.svg" alt="Increase quantity" />
+            <img
+              class="quantity__down"
+              src="./images/icon-minus.svg"
+              alt="Decrease quantity"
+            />
+            <span class="quantity__amount">0</span>
+            <img
+              class="quantity__up"
+              src="./images/icon-plus.svg"
+              alt="Increase quantity"
+            />
           </div>
           <button>
             <img src="./images/icon-cart.svg" alt="Cart" />Add to cart
