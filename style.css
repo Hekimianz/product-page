@@ -44,10 +44,11 @@ header {
   cursor: pointer;
 }
 
-.cart__icon {
+.cart__icon--cont {
   margin-left: auto;
   margin-right: 2.2rem;
   cursor: pointer;
+  position: relative;
 }
 
 .overlay {
@@ -416,6 +417,15 @@ button:hover {
 .prev {
   left: -2.9rem;
 }
+.cart__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.cart__content button {
+  width: 90%;
+}
 
 .cart__innerContent {
   display: flex;
@@ -452,6 +462,18 @@ button:hover {
 
 .bold {
   font-weight: 700;
+}
+
+.cart__q--icon {
+  position: absolute;
+  color: #fff;
+  font-size: 1rem;
+  background-color: #ff7e1b;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6.5px;
+  font-weight: 700;
+  top: -1rem;
+  left: 1rem;
 }
 
 .hidden {

@@ -8,15 +8,16 @@ const lightboxClose = document.querySelector(".lightbox__close");
 const mobileImageBtns = document.querySelectorAll(".mobile__image--btn");
 const lightboxBtns = document.querySelectorAll(".lightbox__btn");
 const thumbs = document.querySelectorAll(".thumbnail");
-const cartIcon = document.querySelector(".cart__icon");
+const cartIcon = document.querySelector(".cart__icon--cont");
 const mobileCart = document.querySelector(".mobile__cart");
 const desktopCart = document.querySelector(".desktop__cart");
 const quantityUp = document.querySelector(".quantity__up");
 const quantityDown = document.querySelector(".quantity__down");
 const quantity = document.querySelector(".quantity__amount");
-const addCartBtn = document.querySelector("button");
+const addCartBtn = document.querySelectorAll("button")[2];
 const cartContent = document.querySelectorAll(".cart__innerContent");
 const deleteCart = document.querySelectorAll(".cart__delete");
+const cartQ = document.querySelector(".cart__q--icon");
 
 const cart = {
   amount: 0,
@@ -115,6 +116,8 @@ cartIcon.addEventListener("click", () => {
 
 // add to cart
 addCartBtn.addEventListener("click", () => {
+  cart.amount = 0;
+  renderCart();
   cart.amount = selectedQuantity;
   renderCart();
 });
@@ -130,6 +133,8 @@ deleteCart.forEach((btn) => {
 // render cart
 function renderCart() {
   if (!cart.amount) {
+    document.querySelectorAll("button")[0].classList.add("hidden");
+    document.querySelectorAll("button")[1].classList.add("hidden");
     cartContent.forEach((cart) => {
       cart.classList.add("hidden");
     });
@@ -139,7 +144,10 @@ function renderCart() {
     document.querySelectorAll(".empty__cart").forEach((span) => {
       span.classList.remove("hidden");
     });
+    cartQ.classList.add("hidden");
   } else {
+    document.querySelectorAll("button")[0].classList.remove("hidden");
+    document.querySelectorAll("button")[1].classList.remove("hidden");
     document.querySelectorAll(".empty__cart").forEach((span) => {
       span.classList.add("hidden");
     });
@@ -151,6 +159,8 @@ function renderCart() {
         cart.amount
       }<span class="bold"> $${cart.calcTotal()}.00</span>`;
     });
+    cartQ.innerText = cart.amount;
+    cartQ.classList.remove("hidden");
   }
 }
 
