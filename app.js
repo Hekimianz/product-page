@@ -6,6 +6,9 @@ const desktopImage = document.querySelector(".desktop__image");
 const lightbox = document.querySelector(".lightbox");
 const lightboxClose = document.querySelector(".lightbox__close");
 const mobileImageBtns = document.querySelectorAll(".mobile__image--btn");
+const lightboxBtns = document.querySelectorAll(".lightbox__btn");
+const thumbs = document.querySelectorAll(".thumbnail");
+
 let currentImage = "";
 currentImage = getImage();
 
@@ -43,6 +46,43 @@ mobileImageBtns.forEach((btn) => {
       currentImage = getImage("next");
       e.target.parentNode.style.background = currentImage;
     }
+  });
+});
+
+// Lightbox image slider
+lightboxBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    let thumbnails = Array.from(thumbs).slice(4);
+    thumbnails.forEach((t) => {
+      t.classList.remove("active");
+    });
+    if (e.target.classList.contains("prev")) {
+      currentImage = getImage("prev");
+      e.target.closest(".lightbox__image").style.background = currentImage;
+    } else {
+      currentImage = getImage("next");
+      e.target.closest(".lightbox__image").style.background = currentImage;
+    }
+    thumbnails[+currentImage.split("-")[2].split(".")[0] - 1].classList.add(
+      "active"
+    );
+  });
+});
+
+thumbs.forEach((thumbnail) => {
+  thumbnail.addEventListener("click", (e) => {
+    thumbs.forEach((t) => {
+      t.classList.remove("active");
+    });
+    let img = e.target.getAttribute("data-img");
+    if (e.target.classList.contains("home__thumbnail")) {
+      desktopImage.style.background = `url('./images/image-product-${img}.jpg')  top / cover no-repeat`;
+    } else {
+      currentImage = `url('./images/image-product-${img}.jpg')  top / cover no-repeat`;
+      document.querySelector(".lightbox__image").style.background =
+        currentImage;
+    }
+    e.target.classList.add("active");
   });
 });
 
